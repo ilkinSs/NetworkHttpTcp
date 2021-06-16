@@ -16,20 +16,16 @@ namespace Clients.Lib
             
         });
 
-        public async Task Invoke(int port)
+        public async Task Invoke()
         {
             var timer = new Stopwatch();
             timer.Start();
 
-            for (int i = 0; i < 5000; i++)
-            {
-               
-         
-                StringContent stringContent = new StringContent(i.ToString() + "aloha");
-                var response = await client.PostAsync($"http://localhost:{port}/", stringContent);             
-                var resContent = response.Content.ReadAsStringAsync().Result;
-
-
+            for (int i = 0; i < 2500; i++)
+            {                         
+                StringContent stringContent = new StringContent(i.ToString() + "aloha" );
+                var response = await client.PostAsync($"http://localhost:{8000}/", stringContent);             
+                var resContent = await response.Content.ReadAsStringAsync();
             }
             timer.Stop();
             

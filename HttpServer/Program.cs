@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HttpServer
@@ -20,15 +21,11 @@ namespace HttpServer
             string sentname;
             HttpListener httpListener = new HttpListener();
             httpListener.Prefixes.Add("http://localhost:8000/");
-            httpListener.Prefixes.Add("http://localhost:8001/");
-            httpListener.Prefixes.Add("http://localhost:8002/");
-            //httpListener.Prefixes.Add("http://localhost:8003/");
-            //httpListener.Prefixes.Add("http://localhost:8004/");
-            //httpListener.Prefixes.Add("http://localhost:8005/");
-
 
 
             httpListener.Start();
+
+
             Console.WriteLine("Http Server runing");
             while (true)
             {
@@ -44,6 +41,7 @@ namespace HttpServer
                     sentname = reader.ReadToEnd();
                     Console.WriteLine(sentname);
                 }
+                Thread.Sleep(1000);
                 stream.Write(Encoding.UTF8.GetBytes(sentname +"bla bla" ));
                 response.Close();
                 body.Close();

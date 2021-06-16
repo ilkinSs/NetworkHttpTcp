@@ -15,23 +15,98 @@ namespace Clients
         static  void Main(string[] args)
         {
             //ServicePointManager.DefaultConnectionLimit = 10;
+            Console.WriteLine(ServicePointManager.DefaultConnectionLimit);
             Thread.Sleep(1000);
             Client client = new Client();
-            Client[] clients = new Client[3]
+            Client[] clients = new Client[80]
             {
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                 new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
+                new Client(),
                 new Client(),
                 new Client(),
                 new Client()
             };
 
-            int port = 8000;
-
             var tasks = new List<Task>();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 80; i++)
             {
-                var t = clients[i].Invoke(port);
-                port++;
+                var t = clients[i].Invoke();
 
                 tasks.Add(t);
             }
